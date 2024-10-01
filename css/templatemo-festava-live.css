@@ -530,10 +530,12 @@ strong {
 /*---------------------------------------
   ABOUT              
 -----------------------------------------*/
+.services-info {
+  margin-top: 50px;
+}
+
 .about-section {
   background-image: url('../images/Untitled\ design.png');
-
- 
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
