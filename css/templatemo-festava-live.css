@@ -375,7 +375,7 @@ strong {
 .navbar {
   background: transparent;
   display: flex;
-  width: fit-content;
+  
   justify-content: center;
   padding: 15px 0;
   margin: 0 auto;
