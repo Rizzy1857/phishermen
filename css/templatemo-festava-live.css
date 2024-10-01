@@ -1029,9 +1029,16 @@ strong {
     font-size: 14px;
     padding: 10px 20px;
   }
+
+  .services-info {
+    margin-top: 100px;
+  }
 }
 
 @media screen and (max-width: 480px) {
+  .services-info {
+    margin-top: 100px;
+  }
   h1 {
     font-size: 52px;
   }
