@@ -531,7 +531,7 @@ strong {
   ABOUT              
 -----------------------------------------*/
 .services-info {
-  margin-top: 200px;
+  margin-top: 50px;
 }
 
 .about-section {
@@ -992,6 +992,10 @@ strong {
 
   .hero-section {
     padding-top: 150px;
+  }
+
+  .services-info {
+    margin-top: 100px;
   }
 
   .pricing-thumb {
