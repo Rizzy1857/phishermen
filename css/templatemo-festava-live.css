@@ -813,6 +813,7 @@ strong {
   CONTACT               
 -----------------------------------------*/
 .google-map {
+  max-width: 100vh;
   border-radius: var(--border-radius-medium);
 }
 
