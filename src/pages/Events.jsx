@@ -34,6 +34,17 @@ export default function Events() {
 						<h2 className="text-2xl font-mono text-cyan-400 mb-2">
 							{ev.title}
 						</h2>
+                        {/* Active/inactive dots below each event */}
+						<div className="flex items-center gap-2 mb-2 mt-1">
+							<span
+								className="w-3 h-3 rounded-full bg-green-500 border-2 border-black shadow"
+								title="Active"
+							></span>
+							<span
+								className="w-3 h-3 rounded-full bg-red-500 border-2 border-black opacity-60"
+								title="Inactive"
+							></span>
+						</div>
 						<p className="text-gray-300 mb-4">{ev.desc}</p>
 						<button className="mt-2 px-4 py-1 rounded bg-cyan-900 text-cyan-200 font-mono hover:bg-cyan-700 transition">
 							Details

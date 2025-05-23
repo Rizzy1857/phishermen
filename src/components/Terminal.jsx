@@ -9,6 +9,7 @@ export default function Terminal({ onClose }) {
     'Type "help" for available commands',
     ''
   ]);
+  const [pixelate, setPixelate] = useState(false);
   const inputRef = useRef(null);
   const endRef = useRef(null);
   const navigate = useNavigate();
@@ -73,6 +74,17 @@ export default function Terminal({ onClose }) {
     exit: () => {
       onClose();
       return ['Terminal session ended'];
+    },
+    self_destruct: () => {
+      setPixelate(true);
+      setTimeout(() => {
+        setPixelate(false);
+        window.location.href = 'https://thispagedoesnotexist.com/404';
+      }, 2000);
+      return [
+        '!!! SELF DESTRUCT SEQUENCE INITIATED !!!',
+        'Deleting terminal...'
+      ];
     }
   };
 
@@ -119,9 +131,9 @@ export default function Terminal({ onClose }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4"
+      className={`fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4 ${pixelate ? 'pixelate flicker' : ''}`}
     >
-      <div className="w-full max-w-3xl h-[80vh] bg-gray-900 rounded-lg overflow-hidden border border-green-500 shadow-lg shadow-green-500/20">
+      <div className="w-full max-w-3xl h-[80vh] bg-gray-900 rounded-lg overflow-hidden border border-green-500 shadow-lg shadow-green-500/20 relative">
         {/* Terminal header */}
         <div className="flex items-center justify-between px-4 py-2 bg-gray-800 border-b border-green-500">
           <div className="flex items-center space-x-2">
@@ -160,3 +172,14 @@ export default function Terminal({ onClose }) {
     </motion.div>
   );
 }
+
+/* Add to index.css:
+.pixelate {
+  filter: url('#pixelate');
+  animation: pixel-flicker 0.2s steps(2) infinite;
+}
+@keyframes pixel-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+*/

@@ -9,7 +9,3 @@ export default defineConfig({
   },
   base: "./",
 });
-// Optimize build for GitHub Pages/Vercel
-// Configure PWA capabilities
-// Set up asset optimization (SVG, fonts)
-// Add bundle analyzer for production

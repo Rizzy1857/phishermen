@@ -59,3 +59,29 @@ body::before {
   80% { text-shadow: 2px -2px #00fff7, -2px 2px #ff00c8; }
   100% { text-shadow: 2px 0 #00fff7, -2px 0 #ff00c8; }
 }
+
+/* Pixelate and flicker effects for terminal self_destruct */
+.pixelate {
+  /* Use SVG filter for pixelation if supported, fallback to blur */
+  filter: url('#pixelate');
+  image-rendering: pixelated;
+  /* fallback for browsers without SVG filter support */
+  filter: blur(2px) contrast(2);
+}
+@keyframes pixel-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.flicker {
+  animation: pixel-flicker 0.15s steps(2) infinite;
+}
+/* Optional: SVG filter for pixelation */
+body::after {
+  /* SVG filter for pixelation, hidden but available for use */
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: -1;
+}

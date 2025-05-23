@@ -1,46 +1,37 @@
-// Define hacker color palette:
-// - Matrix green gradients
-// - CRT scanline effects
-// - Glitchy pink/blue accents
-// Add custom animations:
-// - Text glitch
-// - Terminal cursor blink
-// - Button pulse effects
-// Configure dark mode as default
-
 module.exports = {
-  darkMode: "class",
   content: [
-    "./src/**/*.{js,jsx,ts,tsx,mdx}",
-    "./public/index.html",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        hacker: {
-          black: "#0a0a0a",
-          green: "#00ff41",
-          cyan: "#00fff7",
-          pink: "#ff00c8",
-          red: "#ff003c",
-        },
-      },
-      boxShadow: {
-        glow: "0 0 8px 2px #00fff7, 0 0 16px 4px #ff00c8",
+        'hacker-green': '#00ff00',
+        'matrix-green': '#20C20E',
+        'terminal-green': '#33FF33',
+        'hacker-red': '#ff0033',
+        'hacker-blue': '#0066ff',
+        'hacker-purple': '#9900ff',
       },
       fontFamily: {
-        mono: ["Share Tech Mono", "Orbitron", "ui-monospace", "SFMono-Regular", "monospace"],
+        'mono': ['"Share Tech Mono"', 'monospace'],
       },
       animation: {
-        blink: "blink 1s steps(2, start) infinite",
+        'glitch': 'glitch 1s linear infinite',
+        'pulse-slow': 'pulse 3s linear infinite',
       },
       keyframes: {
-        blink: {
-          "0%, 100%": { opacity: 1 },
-          "50%": { opacity: 0 },
+        glitch: {
+          '0%': { textShadow: '0.05em 0 0 #00fffc, -0.05em -0.025em 0 #fc00ff' },
+          '14%': { textShadow: '0.05em 0 0 #00fffc, -0.05em -0.025em 0 #fc00ff' },
+          '15%': { textShadow: '-0.05em -0.025em 0 #00fffc, 0.025em 0.025em 0 #fc00ff' },
+          '49%': { textShadow: '-0.05em -0.025em 0 #00fffc, 0.025em 0.025em 0 #fc00ff' },
+          '50%': { textShadow: '0.025em 0.05em 0 #00fffc, 0.05em 0 0 #fc00ff' },
+          '99%': { textShadow: '0.025em 0.05em 0 #00fffc, 0.05em 0 0 #fc00ff' },
+          '100%': { textShadow: '-0.025em 0 0 #00fffc, -0.025em -0.025em 0 #fc00ff' },
         },
       },
     },
   },
   plugins: [],
-};
+}
