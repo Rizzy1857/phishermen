@@ -24,7 +24,7 @@ export default function Home() {
       
       <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Countdown targetDate="2024-11-15T00:00:00" />
+          <Countdown targetDate="2025-05-25T12:00:00" />
         </div>
       </section>
     </div>

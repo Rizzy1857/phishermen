@@ -14,8 +14,9 @@ export default function Countdown({ targetDate }) {
       const target = new Date(targetDate).getTime()
       const distance = target - now
 
-      if (distance < 0) {
+      if (distance <= 0) {
         clearInterval(interval)
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
         return
       }
 
@@ -32,15 +33,25 @@ export default function Countdown({ targetDate }) {
 
   return (
     <div className="text-center">
-      <h3 className="text-2xl mb-6 text-green-400">EVENT STARTS IN</h3>
-      <div className="flex justify-center gap-4">
-        {Object.entries(timeLeft).map(([unit, value]) => (
-          <div key={unit} className="flex flex-col items-center">
-            <div className="w-20 h-20 flex items-center justify-center bg-gray-800 rounded-lg border border-green-900/50">
-              <span className="text-3xl font-bold text-green-400">{String(value).padStart(2, '0')}</span>
+      <h3 className="text-2xl mb-6 text-green-400 font-orbitron drop-shadow-glow">EVENT STARTS IN</h3>
+      <div className="flex justify-center items-end gap-0">
+        {Object.entries(timeLeft).map(([unit, value], idx, arr) => (
+          <>
+            <div key={unit} className="flex flex-col items-center mx-1">
+              <div className="w-20 h-20 flex items-center justify-center bg-gray-800 rounded-lg border-2 neon-border shadow-lg mb-1 animate-pulse-slow">
+                <span className="text-4xl font-bold text-hacker-green font-orbitron glitch drop-shadow-glow transition-all duration-300">
+                  {String(value).padStart(2, '0')}
+                </span>
+              </div>
+              <span className="mt-1 text-hacker-blue uppercase text-xs font-mono tracking-widest drop-shadow-glow">
+                {unit}
+              </span>
             </div>
-            <span className="mt-2 text-gray-400 uppercase text-sm">{unit}</span>
-          </div>
+            {/* Separator between boxes, except after last */}
+            {idx < arr.length - 1 && (
+              <span key={unit + '-sep'} className="text-hacker-purple text-4xl font-bold select-none mx-1 mb-6 animate-glitch flex items-center">:</span>
+            )}
+          </>
         ))}
       </div>
     </div>

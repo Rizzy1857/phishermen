@@ -8,6 +8,7 @@ import Blog from './pages/Blog'
 import TerminalModal from './components/Terminal'
 import Footer from './components/Footer'
 import { motion } from 'framer-motion'
+import BlogRedirect from "./pages/BlogRedirect"
 
 const AppContent = () => {
   const location = useLocation()
@@ -55,6 +56,7 @@ const AppContent = () => {
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<Events />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogRedirect />} />
         </Routes>
       </motion.div>
       

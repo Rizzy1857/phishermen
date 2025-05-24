@@ -100,8 +100,17 @@ export default function Terminal({ onClose }) {
     const newOutput = [...output, `> ${input}`];
     const [command, ...args] = input.split(' ');
 
+    // Rickroll Easter egg: hi/hey followed by anything
+    if (/^(hi|hey)\b/i.test(input.trim())) {
+      setOutput([
+        ...newOutput,
+        'Never gonna give you up... 🎵',
+        <img src="https://media.giphy.com/media/Vuw9m5wXviFIQ/giphy.gif" alt="Rickroll" style={{maxWidth:'300px',borderRadius:'8px',margin:'1em auto'}} key={Date.now()} />,
+        ''
+      ]);
+    }
     // Check easter eggs first
-    if (easterEggs[input.toLowerCase()]) {
+    else if (easterEggs[input.toLowerCase()]) {
       setOutput([...newOutput, ...easterEggs[input.toLowerCase()]()]);
     } 
     // Check valid commands

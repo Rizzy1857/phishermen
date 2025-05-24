@@ -85,3 +85,11 @@ body::after {
   pointer-events: none;
   z-index: -1;
 }
+
+/* Font utilities */
+.font-orbitron {
+  font-family: 'Orbitron', 'Share Tech Mono', monospace;
+}
+.font-sharetech {
+  font-family: 'Share Tech Mono', monospace;
+}
