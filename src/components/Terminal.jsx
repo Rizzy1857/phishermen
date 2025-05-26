@@ -91,7 +91,7 @@ export default function Terminal({ onClose }) {
   // Easter eggs
   const easterEggs = {
     'make me a sandwich': () => ['What? Make it yourself', ''],
-    'sudo make me a sandwich': () => ['Okay.', '*poof*', 'You\'re a sandwich', ''],
+    'sudo make me a sandwich': () => ['Okay.', '*poof*', 'You\'re the idiot sandwich now', ''],
     'rm -rf /': () => ['Nice try. Security protocols engaged.', '']
   };
 
